@@ -1,0 +1,182 @@
+voting system
+
+
+package vishwa;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
+import javax.swing.*;
+class AA1  implements ActionListener{
+	JFrame frame;
+	JLabel head,can,vishwa,sandesh,abhi;
+	JTextField check1,check2,check3;
+	JButton vote1,vote2,vote3,clr,resul,exit;
+	JTextArea result;
+	
+	int counter1,counter2,counter3;
+	AA1(){
+		
+		
+		
+	frame=new JFrame();
+	frame.setSize(700,500);
+	frame.setTitle("election system");
+	frame.setVisible(true);
+	frame.setLayout(null);
+	frame.setLocationRelativeTo(null);
+
+	head=new JLabel("Election pannel");
+	can=new JLabel("candidate name");
+	vishwa= new JLabel("vishwa");
+	sandesh= new JLabel("sandehs");
+	abhi= new JLabel("abhi");
+	
+	check1=new JTextField();
+	check2=new JTextField();
+    check3=new JTextField();
+
+  	//vote1,vote2,vote3,clr,resul,exit
+    vote1=new JButton("vote");
+	vote2=new JButton("vote");
+	vote3=new JButton("vote");
+	clr=new JButton("clr");
+	resul=new JButton("result");
+	exit= new JButton("Exit");
+	
+	result=new JTextArea();
+	
+	head.setBounds(290, 30, 100, 50);
+	frame.add(head);
+	
+	can.setBounds(100, 50, 100, 100);
+	frame.add(can);
+	
+	vishwa.setBounds(100, 100, 100, 100);
+	frame.add(vishwa);
+	
+	sandesh.setBounds(100, 140, 100, 100);
+	frame.add(sandesh);
+	
+
+	abhi.setBounds(100, 180, 100, 100);
+	frame.add(abhi);
+	
+
+	vote1.setBounds(250, 140, 100, 20);
+	frame.add(vote1);
+	
+	vote2.setBounds(250, 180, 100, 20);
+	frame.add(vote2);
+	
+
+	vote3.setBounds(250, 220, 100, 20);
+	frame.add(vote3);
+	
+	
+
+	check1.setBounds(350, 140, 100, 20);
+	frame.add(check1);
+	
+	check2.setBounds(350, 180, 100, 20);
+	frame.add(check2);
+	
+
+	check3.setBounds(350, 220, 100, 20);
+	frame.add(check3);
+	
+	//3,clr,resul,exit;
+	clr.setBounds(100, 300, 100, 30);
+	frame.add(clr);
+	
+	resul.setBounds(200, 300, 100, 30);
+	frame.add(resul);
+	
+	exit.setBounds(300, 300, 100, 30);
+	frame.add(exit);
+	
+	result.setBounds(450, 100, 200, 300);
+	result.setWrapStyleWord(true);
+	frame.add(result);
+	
+	
+	clr.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			check1.setText("");
+			check2.setText("");
+			check3.setText("");
+	}
+	});
+	
+	exit.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+	     System.exit(0);
+			
+		}
+	});
+	
+	resul.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		
+		if(counter1>counter2 && counter1>counter3) {
+			result.setText("vishwa :"+counter1+"\n"+"sandesh :"+counter2+"\n"+"abhi :"+counter3+"\n"+"vishwa is winner");
+		}	
+		if(counter2>counter1 && counter2>counter3) {
+			result.setText("vishwa :"+counter1+"\n"+"sandesh :"+counter2+"\n"+"abhi :"+counter3+"\n"+"sandesh is winner");
+		}	
+		if(counter3>counter1 && counter3>=counter2) {
+			result.setText("vishwa :"+counter1+"\n"+"sandesh :"+counter2+"\n"+"abhi :"+counter3+"\n"+"abhi is winner");
+		}	
+		//result.setText("vishwa :"+counter1+"\n"+"sandesh :"+counter2+"\n"+"abhi :"+counter3+"\n"+"vishwa is winner");
+		
+			
+		}
+	});
+	
+vote1.addActionListener(this);	
+vote2.addActionListener(this);	
+vote3.addActionListener(this);	
+
+	
+	
+	
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+System.out.println("helo");
+		if(e.getSource()==vote1) {
+	counter1=counter1+1;
+			check1.setText("vishwa");
+			
+}
+if(e.getSource()==vote2) {
+	counter2=counter2+1;
+	check2.setText("sandesh");
+}
+if(e.getSource()==vote3) {
+	counter3=counter3+1;
+	check3.setText("abhi");
+}
+
+}
+	
+	
+	
+}
+public class Election {
+
+	public static void main(String[] args) {
+AA1 a= new AA1();
+
+	}
+
+}

@@ -1,0 +1,130 @@
+interst calculator
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+class Ma{
+	 private JFrame frame;
+	 private JLabel head, pri,intr,time;
+	 private JTextField PRI,INTR,TIME;
+   private 	JButton simple;
+   private JTextArea ans;
+   int d;
+	
+	Ma() throws Exception{
+
+		frame=new JFrame();
+		frame.setSize(500,600);
+		frame.setVisible(true);
+		frame.setLayout(null);
+		frame.setTitle("interst calculator");
+		
+		head = new JLabel("interst calculator");
+		head.setBounds(200,20,100,100);
+		frame.add(head);
+		
+		pri= new JLabel("principle :");
+		pri.setBounds(60,100,100,100);
+		frame.add(pri);
+		
+		intr = new JLabel("amount of intrst :");
+		intr.setBounds(250,100,100,100);
+		frame.add(intr);
+		
+		time= new JLabel("anula time :");
+		time.setBounds(100,200,100,100);
+		frame.add(time);
+		
+		
+		/*
+		 * 
+		 * text field
+		 * 
+		 * PRI,INTR,TIME;
+		 * 
+		 * 
+		 */
+		
+		PRI= new JTextField();
+		PRI.setBounds(120,135,100,30);
+		frame.add(PRI);
+	     	
+		
+		INTR= new JTextField();
+		INTR.setBounds(350,135,100,30);
+		frame.add(INTR);
+		
+		TIME= new JTextField();
+		TIME.setBounds(170,235,100,30);
+		frame.add(TIME);
+		/*
+		 * 
+		 * button setting adding
+		 * 
+		 */
+	
+		simple= new JButton("simple.i");
+		simple.setBounds(150, 300, 70, 30);
+        frame.add(simple);	
+	/*
+	 * 
+	 * ans 
+	 * textfield setting add
+	 * 
+	 * 
+	 */
+	
+        ans=new JTextArea();
+        ans.setBounds(200, 350, 100, 30);
+        frame.add(ans);
+        
+        
+        /*
+         *  PRI,INTR,TIME getting values
+         * event handlig add on button         * 
+         */
+       
+		
+        
+        simple.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+		//String a=PRI.getText();
+		int A=Integer.parseInt(PRI.getText());   
+		int B=Integer.parseInt(INTR.getText());  
+		int C=Integer.parseInt(TIME.getText());  
+		
+		d=(A*B*C)*100;
+		
+		
+			
+			}
+		});
+        
+       
+			
+			ans.setText(d+"");
+			
+			
+			
+			
+		
+		
+	}
+	
+	
+	
+}
+
+
+public  class Intrst {
+
+	public static void main(String[] args) throws Exception {
+Ma m= new Ma();
+	}
+
+}
